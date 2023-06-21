@@ -1,0 +1,62 @@
+from abc import ABC
+
+
+class Pedido(ABC):
+    contador_pedido = 0
+
+    def _init_(self, solicitante, lista_material, fecha_prestamo, fecha_devolucion, materia):
+        super()._init_(fecha_devolucion=fecha_devolucion, fecha_prestamo=fecha_prestamo, materia=materia)
+        self._id = Pedido.contador_pedido
+        self._solicitante = solicitante
+        self._lista_material = lista_material
+        self._materia = materia
+        self._fecha_prestamo = fecha_prestamo
+        self._fecha_devolucion = fecha_devolucion
+        Pedido.contador_pedido += 1
+
+    @property
+    def id(self):
+        return self._id
+
+    @property
+    def solicitante(self):
+        return self._solicitante
+
+    @solicitante.setter
+    def solicitante(self, solicitante):
+        self._solicitante = solicitante
+
+    @property
+    def lista_material(self):
+        return self._lista_material
+
+    @lista_material.setter
+    def lista_material(self, lista_material):
+        self._lista_material = lista_material
+
+    @property
+    def materia(self):
+        return self._materia
+
+    @materia.setter
+    def materia(self, materia):
+        self._materia = materia
+
+    @property
+    def fecha_prestamo(self):
+        return self._fecha_prestamo
+
+    @property
+    def fecha_devolucion(self):
+        return self._fecha_devolucion
+
+    @fecha_devolucion.setter
+    def fecha_devolucion(self, fecha_devolucion):
+        self._fecha_devolucion = fecha_devolucion
+
+    def str(self):
+        return f"Materia: {self._materia}\nFecha de devolucion: {self._fecha_devolucion}\nFecha prestamo: {self._fecha_prestamo}"
+
+
+if _name_ == '_main_':
+   pass
